@@ -11,8 +11,8 @@ import numpy as np
 import requests
 import json
 from PyQt5.QtGui import QImage, QPixmap
-from PyQt5.QtWidgets import (QApplication, QDialog, QFileDialog, QGridLayout,
-                             QLabel, QPushButton,QTextEdit)
+from PyQt5.QtWidgets import (QInputDialog,QApplication, QDialog, QFileDialog, QGridLayout,
+                             QLabel, QPushButton,QTextEdit,QLineEdit)
 from PyQt5.QtCore import pyqtSignal
 
 
@@ -79,21 +79,32 @@ class win(QDialog):
         self.btnSave = QPushButton('Save', self)
         self.btnGet = QPushButton('Get', self)
         self.btnQuit = QPushButton('Quit', self)
- ##       self.label = QLabel('空气质量获取器')
+        self.btnOk = QPushButton('Input city',self)
         self.setWindowTitle('空气质量获取器')
+ #       label1 = QLabel('input the city name:')
+        
+        
         # 布局设定
         layout = QGridLayout(self)
         layout.addWidget(self.btnOpen, 4, 1, 1, 1)
         layout.addWidget(self.btnSave, 4, 2, 1, 1)
         layout.addWidget(self.btnGet, 4, 3, 1, 1)
         layout.addWidget(self.btnQuit, 4, 4, 1, 1)
+ #       layout.addWidget(label1,5,1,1,1)
+        layout.addWidget(self.btnOk,3,2,1,2)
 
         # 信号与槽连接, PyQt5与Qt5相同, 信号可绑定普通成员函数
         self.btnOpen.clicked.connect(self.showSlot)
         self.btnSave.clicked.connect(self.saveSlot)
         self.btnGet.clicked.connect(self.getSlot)
         self.btnQuit.clicked.connect(self.close)
-
+        self.btnOk.clicked.connect(self.to)
+        
+    def to(self):
+        self.city, okPressed = QInputDialog.getText(self,"Get City","The city you want to check",QLineEdit.Normal,"")      
+        
+        
+        
     def showSlot(self):
         showWin=showwin()
 
@@ -111,8 +122,10 @@ class win(QDialog):
         f.write(self.text)
 
     def getSlot(self):
- #抓取数据       
-        r = requests.get('http://www.pm25.in/api/querys/co.json?city=hefei&token=5j1znBVAsnSf5xQyNQyq')
+        string1='http://www.pm25.in/api/querys/co.json?city='
+        string2='&token=5j1znBVAsnSf5xQyNQyq'
+        url=string1+self.city+string2
+        r = requests.get(url)
         hjson = json.loads(r.text)
         js = json.dumps(hjson, sort_keys=True, indent=4, separators=(',', ';'), ensure_ascii=False)
         self.text = js
