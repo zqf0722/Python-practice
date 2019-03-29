@@ -91,7 +91,7 @@ class win(QDialog):
         layout.addWidget(self.btnGet, 4, 3, 1, 1)
         layout.addWidget(self.btnQuit, 4, 4, 1, 1)
  #       layout.addWidget(label1,5,1,1,1)
-        layout.addWidget(self.btnOk,5,2,1,1)
+        layout.addWidget(self.btnOk,3,2,1,2)
 
         # 信号与槽连接, PyQt5与Qt5相同, 信号可绑定普通成员函数
         self.btnOpen.clicked.connect(self.showSlot)
