@@ -12,7 +12,9 @@ import requests
 import json
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtWidgets import (QApplication, QDialog, QFileDialog, QGridLayout,
-                             QLabel, QPushButton)
+                             QLabel, QPushButton,QTextEdit)
+from PyQt5.QtCore import pyqtSignal
+
 
 #借用GUI用于显示PM2.5并保存
 #开一个子窗口显示是否成功，更有仪式感
@@ -34,7 +36,35 @@ class subwin(QDialog):
         
         self.btnClose.clicked.connect(self.close) 
         
+class showwin(QDialog):
+
+    
+    
+    
+    
+    
+    def __init__(self):
+        
+        super().__init__()
+        self.initUI()
+        
+    def initUI(self):
+        self.resize(600,400)
+        self.text=QTextEdit()
+        leftLayout = QGridLayout() 
+        leftLayout.addWidget(self.text, 2, 1, 1, 40)
+        mainLayout = QGridLayout(self)
+        mainLayout.addLayout(leftLayout, 0, 0)
+        w.mySignal.connect(self.show)
+
+    def show(self,connect):
+        self.text.setText(connect)
+
+        
 class win(QDialog):
+    mySignal = pyqtSignal(str)
+    #信号传递，将主窗口爬虫爬下来的数据传递给显示窗口
+    
     def __init__(self):
 
         # 初始化一个img的ndarray, 用于存储图像
@@ -45,7 +75,7 @@ class win(QDialog):
 
     def initUI(self):
         self.resize(400, 300)
-        self.btnOpen = QPushButton('Open', self)
+        self.btnOpen = QPushButton('Show', self)
         self.btnSave = QPushButton('Save', self)
         self.btnGet = QPushButton('Get', self)
         self.btnQuit = QPushButton('Quit', self)
@@ -59,26 +89,17 @@ class win(QDialog):
         layout.addWidget(self.btnQuit, 4, 4, 1, 1)
 
         # 信号与槽连接, PyQt5与Qt5相同, 信号可绑定普通成员函数
-        self.btnOpen.clicked.connect(self.openSlot)
+        self.btnOpen.clicked.connect(self.showSlot)
         self.btnSave.clicked.connect(self.saveSlot)
         self.btnGet.clicked.connect(self.getSlot)
         self.btnQuit.clicked.connect(self.close)
 
-    def openSlot(self):
-        # 调用打开文件diglog
- #       fileName, tmp = QFileDialog.getOpenFileName(
- #           self, 'Open Image', './__data', '*.txt')
+    def showSlot(self):
+        showWin=showwin()
 
-  #      if fileName is '':
-  #          return
-
-        # 采用opencv函数读取数据
-        self.refreshShow()
- #       if self.img.size == 1:
- #           return
-     #判断文件打开失败语句
- #       self.refreshShow()
-#把数据以txt形式保存
+        self.mySignal.emit(self.text)
+        showWin.exec_()
+        
     def saveSlot(self):
         # 调用存储文件dialog
         fileName, tmp = QFileDialog.getSaveFileName(
@@ -99,14 +120,6 @@ class win(QDialog):
         newWindow.show()
         newWindow.exec_()
 #制作中的显示函数
-    def refreshShow(self):
-        # 显示txt文件中的数据
-        show = QDialog()
-        show.setWindowTitle('show the aqi of the city')
-        show.resize(500,400)
-        label = QLabel("城市空气质量：")
-        show.addWidget(label, 0, 0)  
-        show.addWidget(self.text, 0, 0, 1, 40) 
 
 if __name__ == '__main__':
     a = QApplication(sys.argv)
