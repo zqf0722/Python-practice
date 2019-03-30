@@ -37,7 +37,7 @@ class subwin(QDialog):
         self.btnClose.clicked.connect(self.close) 
         
 class showwin(QDialog):
-
+    #显示窗口
     
     
     
@@ -55,9 +55,11 @@ class showwin(QDialog):
         leftLayout.addWidget(self.text, 2, 1, 1, 40)
         mainLayout = QGridLayout(self)
         mainLayout.addLayout(leftLayout, 0, 0)
+        #信号到来时启用显示函数
         w.mySignal.connect(self.show)
 
     def show(self,connect):
+        #显示接收到的数据
         self.text.setText(connect)
 
         
@@ -67,7 +69,7 @@ class win(QDialog):
     
     def __init__(self):
 
-        # 初始化一个img的ndarray, 用于存储图像
+        # 初始化一个ndarray, 用于存储爬取的数据
         self.text = np.ndarray(())
 
         super().__init__()
@@ -81,7 +83,6 @@ class win(QDialog):
         self.btnQuit = QPushButton('Quit', self)
         self.btnOk = QPushButton('Input city',self)
         self.setWindowTitle('空气质量获取器')
- #       label1 = QLabel('input the city name:')
         
         
         # 布局设定
@@ -106,8 +107,9 @@ class win(QDialog):
         
         
     def showSlot(self):
+        #输出函数，打开一个新的窗口输出
         showWin=showwin()
-
+        #传递函数
         self.mySignal.emit(self.text)
         showWin.exec_()
         
@@ -122,6 +124,7 @@ class win(QDialog):
         f.write(self.text)
 
     def getSlot(self):
+        #使用之前得到的城市字符串完善URL爬取数据
         string1='http://www.pm25.in/api/querys/co.json?city='
         string2='&token=5j1znBVAsnSf5xQyNQyq'
         url=string1+self.city+string2
@@ -129,10 +132,11 @@ class win(QDialog):
         hjson = json.loads(r.text)
         js = json.dumps(hjson, sort_keys=True, indent=4, separators=(',', ';'), ensure_ascii=False)
         self.text = js
+        #成功获取的提示
         newWindow = subwin()
         newWindow.show()
         newWindow.exec_()
-#制作中的显示函数
+
 
 if __name__ == '__main__':
     a = QApplication(sys.argv)
