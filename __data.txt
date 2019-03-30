@@ -1,123 +1,123 @@
 [
     {
-        "aqi";49,
+        "aqi";135,
         "area";"合肥",
-        "co";0.4,
-        "co_24h";0.6,
+        "co";1.0,
+        "co_24h";1.1,
         "position_name";"明珠广场",
-        "primary_pollutant";null,
-        "quality";"优",
+        "primary_pollutant";"细颗粒物(PM2.5)",
+        "quality";"轻度污染",
         "station_code";"1270A",
-        "time_point";"2019-03-22T15:00:00Z"
+        "time_point";"2019-03-30T11:00:00Z"
     },
     {
-        "aqi";32,
+        "aqi";135,
         "area";"合肥",
-        "co";0.4,
-        "co_24h";0.5,
+        "co";0.8,
+        "co_24h";1.0,
         "position_name";"三里街",
-        "primary_pollutant";null,
-        "quality";"优",
+        "primary_pollutant";"细颗粒物(PM2.5)",
+        "quality";"轻度污染",
         "station_code";"1271A",
-        "time_point";"2019-03-22T15:00:00Z"
+        "time_point";"2019-03-30T11:00:00Z"
     },
     {
-        "aqi";28,
+        "aqi";139,
         "area";"合肥",
-        "co";0.5,
+        "co";0.6,
         "co_24h";0.7,
         "position_name";"琥珀山庄",
-        "primary_pollutant";null,
-        "quality";"优",
+        "primary_pollutant";"细颗粒物(PM2.5)",
+        "quality";"轻度污染",
         "station_code";"1272A",
-        "time_point";"2019-03-22T15:00:00Z"
+        "time_point";"2019-03-30T11:00:00Z"
     },
     {
-        "aqi";32,
+        "aqi";139,
         "area";"合肥",
-        "co";0.4,
-        "co_24h";0.5,
+        "co";1.1,
+        "co_24h";1.1,
         "position_name";"董铺水库",
-        "primary_pollutant";null,
-        "quality";"优",
+        "primary_pollutant";"细颗粒物(PM2.5)",
+        "quality";"轻度污染",
         "station_code";"1273A",
-        "time_point";"2019-03-22T15:00:00Z"
+        "time_point";"2019-03-30T11:00:00Z"
     },
     {
-        "aqi";34,
+        "aqi";143,
         "area";"合肥",
-        "co";0.3,
-        "co_24h";0.4,
+        "co";0.8,
+        "co_24h";1.0,
         "position_name";"长江中路",
-        "primary_pollutant";null,
-        "quality";"优",
+        "primary_pollutant";"细颗粒物(PM2.5)",
+        "quality";"轻度污染",
         "station_code";"1274A",
-        "time_point";"2019-03-22T15:00:00Z"
+        "time_point";"2019-03-30T11:00:00Z"
     },
     {
-        "aqi";39,
+        "aqi";158,
         "area";"合肥",
-        "co";0.3,
-        "co_24h";0.4,
+        "co";0.9,
+        "co_24h";1.0,
         "position_name";"庐阳区",
-        "primary_pollutant";null,
-        "quality";"优",
+        "primary_pollutant";"细颗粒物(PM2.5)",
+        "quality";"中度污染",
         "station_code";"1275A",
-        "time_point";"2019-03-22T15:00:00Z"
+        "time_point";"2019-03-30T11:00:00Z"
     },
     {
-        "aqi";35,
+        "aqi";152,
         "area";"合肥",
-        "co";0.5,
-        "co_24h";0.6,
+        "co";1.1,
+        "co_24h";1.2,
         "position_name";"瑶海区",
-        "primary_pollutant";null,
-        "quality";"优",
+        "primary_pollutant";"细颗粒物(PM2.5)",
+        "quality";"中度污染",
         "station_code";"1276A",
-        "time_point";"2019-03-22T15:00:00Z"
+        "time_point";"2019-03-30T11:00:00Z"
     },
     {
-        "aqi";41,
+        "aqi";144,
         "area";"合肥",
-        "co";0.3,
-        "co_24h";0.4,
+        "co";1.2,
+        "co_24h";1.3,
         "position_name";"包河区",
-        "primary_pollutant";null,
-        "quality";"优",
+        "primary_pollutant";"细颗粒物(PM2.5)",
+        "quality";"轻度污染",
         "station_code";"1277A",
-        "time_point";"2019-03-22T15:00:00Z"
+        "time_point";"2019-03-30T11:00:00Z"
     },
     {
-        "aqi";35,
+        "aqi";120,
         "area";"合肥",
-        "co";0.5,
-        "co_24h";0.5,
+        "co";0.7,
+        "co_24h";0.9,
         "position_name";"滨湖新区",
-        "primary_pollutant";null,
-        "quality";"优",
+        "primary_pollutant";"细颗粒物(PM2.5)",
+        "quality";"轻度污染",
         "station_code";"1278A",
-        "time_point";"2019-03-22T15:00:00Z"
+        "time_point";"2019-03-30T11:00:00Z"
     },
     {
-        "aqi";37,
+        "aqi";130,
         "area";"合肥",
-        "co";0.4,
-        "co_24h";0.6,
+        "co";1.3,
+        "co_24h";1.2,
         "position_name";"高新区",
-        "primary_pollutant";null,
-        "quality";"优",
+        "primary_pollutant";"细颗粒物(PM2.5)",
+        "quality";"轻度污染",
         "station_code";"1279A",
-        "time_point";"2019-03-22T15:00:00Z"
+        "time_point";"2019-03-30T11:00:00Z"
     },
     {
-        "aqi";35,
+        "aqi";139,
         "area";"合肥",
-        "co";0.4,
-        "co_24h";0.52,
+        "co";0.95,
+        "co_24h";1.05,
         "position_name";null,
-        "primary_pollutant";"",
-        "quality";"优",
+        "primary_pollutant";"颗粒物(PM2.5)",
+        "quality";"轻度污染",
         "station_code";null,
-        "time_point";"2019-03-22T15:00:00Z"
+        "time_point";"2019-03-30T11:00:00Z"
     }
 ]

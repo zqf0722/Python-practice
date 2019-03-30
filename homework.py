@@ -14,10 +14,11 @@ from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtWidgets import (QInputDialog,QApplication, QDialog, QFileDialog, QGridLayout,
                              QLabel, QPushButton,QTextEdit,QLineEdit)
 from PyQt5.QtCore import pyqtSignal
-
+from subwin import subwin
 
 #借用GUI用于显示PM2.5并保存
 #开一个子窗口显示是否成功，更有仪式感
+'''
 class subwin(QDialog):
     def __init__(self):
         
@@ -35,7 +36,7 @@ class subwin(QDialog):
         layout.addWidget(self.btnClose,4,1,1,1)
         
         self.btnClose.clicked.connect(self.close) 
-        
+'''        
 class showwin(QDialog):
     #显示窗口
     
@@ -62,7 +63,7 @@ class showwin(QDialog):
         #显示接收到的数据
         self.text.setText(connect)
 
-        
+       
 class win(QDialog):
     mySignal = pyqtSignal(str)
     #信号传递，将主窗口爬虫爬下来的数据传递给显示窗口
@@ -110,7 +111,7 @@ class win(QDialog):
         #输出函数，打开一个新的窗口输出
         showWin=showwin()
         #传递函数
-        self.mySignal.emit(self.text)
+        self.mySignal.emit(self.text)       
         showWin.exec_()
         
     def saveSlot(self):
